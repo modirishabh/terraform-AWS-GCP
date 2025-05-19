@@ -1,6 +1,6 @@
 provider "google" {
 
-  credentials = "rishabhmodi-6fb570084be0.json"
+  credentials = "../rishabhmodi-6fb570084be0.json"
 
   project = var.project
   region = var.region
@@ -11,7 +11,7 @@ terraform {
     backend "gcs" {
         bucket = "holla_bahar_se"
         prefix = "holla1"
-        credentials = "rishabhmodi-6fb570084be0.json"
+        credentials = "../rishabhmodi-6fb570084be0.json"
     } 
 }
 
@@ -21,7 +21,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_compute_instance" "vm_instance" {
   name = "my-instance"
   machine_type = "f1.micro"
-  tags = "web"
+  tags = ["web"]
   zone = "var.zone"
   boot_disk {
     initialize_params {
@@ -38,7 +38,7 @@ resource "google_compute_instance" "vm_instance" {
 
 resource "google_compute_firewall" "default" {
   name    = "test-firewall"
-  network = google_compute_network.vpc_default.name
+  network = google_compute_network.vpc_network.name
 
   allow {
     protocol = "icmp"
