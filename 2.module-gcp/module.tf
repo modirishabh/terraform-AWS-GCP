@@ -2,13 +2,13 @@ module "network" {
   source  = "terraform-google-modules/network/google"
   version = "1.1.0"
   network_name = "terraform-vpc-network"
-  project_id   =
+  project_id   =  var.project
 
   subnets = [
     {
       subnet_name   = "subnet-01"
-      subnet_ip     =
-      subnet_region =
+      subnet_ip     =  var.cidr
+      subnet_region =  var.region
     },
   ]
 
