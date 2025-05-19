@@ -8,7 +8,7 @@ module "network" {
   subnets = [
     {
       subnet_name   = "subnet-01"
-      subnet_ip     = var.cidrs
+      subnet_ip     = var.cidr
       subnet_region = var.region
 
     },
