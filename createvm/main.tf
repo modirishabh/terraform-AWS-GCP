@@ -19,13 +19,14 @@ resource "google_compute_network" "vpc_network" {
   name = "new-terraform-network"
 }
 resource "google_compute_instance" "vm_instance" {
-  name = "my-instance"
-  machine_type = "f1.micro"
+  name = "my-instancsaasasdae"
+  machine_type = "f1-micro"  # Should be "f1-micro" not "f1.micro"
+  metadata_startup_script = file("startup.sh")
   tags = ["web"]
-  zone = "var.zone"
+  zone = var.zone
   boot_disk {
     initialize_params {
-      image = "centos-cloud/centos-7"
+      image = "debian-cloud/debian-12"
     }
   }
 
