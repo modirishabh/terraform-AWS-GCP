@@ -1,5 +1,5 @@
 variable "project" {
-  default = 
+  default = "rishabhmodi"
 }
 
 variable "region" {
