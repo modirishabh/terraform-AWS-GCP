@@ -36,6 +36,10 @@ resource "google_compute_instance" "vm_instance" {
   }
 }
 
+resource "google_compute_address" "static_ip" {
+    name = "terraform-static-ip"
+}
+
 resource "google_compute_firewall" "default" {
   name    = "test-firewall"
   network = google_compute_network.vpc_network.name
