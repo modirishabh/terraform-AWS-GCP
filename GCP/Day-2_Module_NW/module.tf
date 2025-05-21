@@ -15,3 +15,4 @@ module "network" {
   secondary_ranges = {
     subnet-01 = []
   }
+}
