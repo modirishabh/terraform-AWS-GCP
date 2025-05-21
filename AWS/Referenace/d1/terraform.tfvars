@@ -1,0 +1,11 @@
+aws_region          = "us-east-2"
+vpc_name            = "vpc-rdx-dev-terraform-01"
+vpc_cidr_block      = "10.25.0.0/25"
+subnet_cidr_block   = "10.25.0.0/25"
+subnet_name         = "rdx-dev-terraform-subnet-01"
+rdx_ec2_name        = "ec2-rdx-dev-terraform-01"
+rdx_instance_type   = "t2.micro"
+rdx_ami             = "ami-0b4624933067d393a"
+keypair_name        = "s3-data-migration-vm-key"
+sg_name             = "NSG-DEV-terraform-01"
+
