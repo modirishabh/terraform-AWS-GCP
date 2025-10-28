@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Orders</h2>
+  {% if not orders %}
+    <p>No orders found.</p>
+  {% else %}
+    {% for order in orders %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Order #{{ order.order_id }} — {{ order.customer_name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ order.date }}</h6>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in order.items %}
+                <tr>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>₹{{ '%.2f'|format(item.price) }}</td>
+                  <td>₹{{ '%.2f'|format(item.total) }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <p class="fw-bold">Order Total: ₹{{ '%.2f'|format(order.total_amount) }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

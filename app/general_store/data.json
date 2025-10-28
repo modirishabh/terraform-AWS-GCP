@@ -1,0 +1,10 @@
+{
+  "products": {
+    "1": { "name": "Rice", "price": 50.0, "stock": 100 },
+    "2": { "name": "Dal", "price": 80.0, "stock": 50 },
+    "3": { "name": "Sugar", "price": 40.0, "stock": 75 },
+    "4": { "name": "Salt", "price": 20.0, "stock": 100 },
+    "5": { "name": "Oil", "price": 120.0, "stock": 30 }
+  },
+  "orders": []
+}

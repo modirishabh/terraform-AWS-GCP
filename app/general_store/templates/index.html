@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Products</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price (₹)</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for code, p in products.items() %}
+        <tr>
+          <td>{{ code }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ '%.2f'|format(p.price) }}</td>
+          <td>{{ p.stock }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <hr>
+  <h3>Place an Order</h3>
+  <form method="post" action="/order">
+    <div class="mb-3">
+      <label class="form-label">Customer name</label>
+      <input class="form-control" name="customer_name" required>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Product</label>
+        <select name="product_code" class="form-select">
+          {% for code, p in products.items() %}
+            <option value="{{ code }}">{{ code }} - {{ p.name }} (₹{{ '%.2f'|format(p.price) }}) - stock: {{ p.stock }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="number" name="quantity" class="form-control" min="1" value="1" required>
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit">Place Order</button>
+  </form>
+{% endblock %}
